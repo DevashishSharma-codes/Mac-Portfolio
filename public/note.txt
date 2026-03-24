@@ -1,0 +1,228 @@
+/**
+ * @file: profile.config.ts
+ * @author: Devashish Sharma
+ * @summary: GenAI-focused Full Stack Engineer building 
+   intelligent developer tools and AI-powered platforms.
+ */
+
+// --------------------------------------------------
+// 1. CORE DEPENDENCIES & SKILLS
+// --------------------------------------------------
+
+const TECH_STACK = {
+  frontend: [
+    "React.js",        // 90%
+    "TailwindCSS",     // 90%
+    "GSAP",            // 80%
+    "Framer Motion",   // 85%
+    "Three.js",        // 70%
+  ],
+
+  backend: [
+    "Node.js",         // 90%
+    "Express.js",      // 90%
+    "MongoDB",         // 85%
+    "Supabase",        // 85%
+    "JWT Authentication", // 85%
+  ],
+
+  ai_stack: [
+    "LangChain",
+    "RAG Architectures",
+    "Agent SDK",
+    "Vector Databases",
+    "Gemini API",
+    "OpenAI API"
+  ],
+
+  programming_languages: [
+    "C++",
+    "Java",
+    "Python",
+    "JavaScript"
+  ],
+
+  data_science: [
+    "Scikit-learn",
+    "Pandas",
+    "NumPy",
+    "Matplotlib"
+  ],
+
+  tools: [
+    "Git",
+    "AWS",
+    "Docker",
+    "Linux"
+  ]
+};
+
+
+// --------------------------------------------------
+// 2. EXPERIENCE LOG (Reverse Chronological)
+// --------------------------------------------------
+
+class ProfessionalHistory {
+
+  /** 
+   * INTERNSHIP ROLE
+   * @period Nov 2024 – Jan 2025
+   */
+  public async CodeAlpha(): Promise<Impact> {
+
+    const role = "Full Stack Web Development Intern";
+
+    const backend = await api.build({
+      stack: ["Node.js", "Express.js", "MongoDB"]
+    });
+
+    const auth = "JWT Authentication + bcrypt Encryption";
+
+    const databaseModels = [
+      "User Schema",
+      "Food Reel Schema",
+      "Uploader Schema"
+    ];
+
+    const product = "Food Reel Platform MVP";
+
+    return { role, backend, auth, databaseModels, product };
+  }
+}
+
+
+// --------------------------------------------------
+// 3. PROJECT ARCHIVE
+// --------------------------------------------------
+
+interface Project {
+  name: string;
+  stack: string[];
+  highlight: string;
+}
+
+const projects: Project[] = [
+
+  {
+    name: "Gen AI Version Control System",
+
+    stack: [
+      "MERN Stack",
+      "OpenAI API",
+      "Supabase",
+      "Three.js",
+      "Recharts",
+      "GSAP",
+      "Framer Motion"
+    ],
+
+    highlight:
+      "Built an AI-powered code collaboration platform that performs automatic
+       code reviews, repository analytics, and chatbot-based developer assistance
+       using OpenAI."
+  },
+
+  {
+    name: "Policy Checker – AI PDF Query Platform",
+
+    stack: [
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Supabase",
+      "Gemini API",
+      "RAG Architecture"
+    ],
+
+    highlight:
+      "Developed a document query system that allows users to ask natural
+       language questions over PDFs and receive context-aware answers
+       with original document clause citations."
+  }
+
+];
+
+
+// --------------------------------------------------
+// 4. COMPETITIVE ACHIEVEMENTS
+// --------------------------------------------------
+
+interface HackathonParticipation {
+  event: string;
+  project: string;
+}
+
+const trophyCabinet: HackathonParticipation[] = [
+
+  {
+    event: "HackLLM Hackathon",
+    project: "AI Developer Tools"
+  },
+
+  {
+    event: "Bajaj Hackathon",
+    project: "AI Document Intelligence"
+  },
+
+  {
+    event: "Google Developer Events",
+    project: "GenAI & Full Stack Projects"
+  }
+
+];
+
+
+// --------------------------------------------------
+// 5. ACADEMIC BACKGROUND
+// --------------------------------------------------
+
+const education = new Map<string, string>([
+  [
+    "Parul Institute of Engineering and Technology",
+    "B.Tech Computer Science Engineering (IEP with Oracle) | CGPA: 7.4 | SGPA: 8.0"
+  ]
+]);
+
+
+// --------------------------------------------------
+// 6. CERTIFICATIONS
+// --------------------------------------------------
+
+const certifications = [
+  "Oracle Java SE 17 Developer – Oracle",
+  "SQL on Oracle Cloud – Oracle"
+];
+
+
+// --------------------------------------------------
+// 7. CONTACT ENDPOINTS
+// --------------------------------------------------
+
+const contact = {
+  phone: "+91 6358006255",
+  email: "devashishsharma2157@gmail.com",
+  linkedin: "linkedin.com/in/devashish-sharma-aa470832a",
+  github: "github.com/DevashishSharma-codes"
+};
+
+
+export default new ProfessionalHistory();
+
+
+/* -------------------------------------------------
+
+# TERMINAL OUTPUT
+# ---------------------------------------
+
+$ devashish --status
+
+> Role: GenAI + Full Stack Developer
+> Focus: AI Agents, RAG Systems, Developer Platforms
+> Location: India / Remote
+> Status: Open to Opportunities
+
+Loading Projects... [||||||||||] 100%
+
+System Ready 🚀
+
+------------------------------------------------- */

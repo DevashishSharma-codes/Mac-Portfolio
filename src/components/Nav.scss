@@ -1,0 +1,34 @@
+.nav {
+    width: 100%;
+    background-color: rgba(184, 184, 184, 0.178);
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    background-color: #9e9e9e1b;
+    backdrop-filter: blur(5px);
+    display: flex;
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: -0.1px;
+    justify-content: space-between;
+
+
+}
+
+.left {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+}
+
+.right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-weight: 500;
+}
+
+//fontSize: '13px', 

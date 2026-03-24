@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, #root {
+    height: 100%;
+    width: 100%;
+}
+body{
+    overflow:hidden;
+}
+main {
+  min-height:100vh;
+    width:100%;
+    overflow: hidden;
+    position: relative;
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/25341.jpg"); background-position: center; background-size: cover; background-repeat: no-repeat;
+}
