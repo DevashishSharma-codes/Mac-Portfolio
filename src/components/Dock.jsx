@@ -22,7 +22,14 @@ const Dock = ({setWindowsState }) => {
       }} className='icon pdf'><img src="/doc-icons/pdf.svg" alt="" /></div>
 
 
-      <div   onClick={()=>{window.open("mailto:devashishsharma@gmail.com","_blank")}} className='icon mail'><img src="/doc-icons/mail.svg" alt="" /></div>
+<a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=devashishsharma2157@gmail.com&su=Portfolio%20Contact&body=Hello%20I%20want%20to%20connect"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="icon mail"
+>
+  <img src="/doc-icons/mail.svg" alt="mail" />
+</a>
 
       <div onClick={() => {
         setWindowsState(prev => ({ ...prev, spotify: true }))
