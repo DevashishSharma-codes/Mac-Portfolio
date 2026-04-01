@@ -1,5 +1,4 @@
 .window {
-
     background-color: #060606;
     border-radius: 0.75rem;
     overflow: hidden;
@@ -7,17 +6,17 @@
     color: rgb(168, 168, 168);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
+    display: flex;
+    flex-direction: column;
 
     .nav {
-
         padding-inline: 0.75rem;
         padding-block: 0.5rem;
         border-bottom: 1px solid rgba(245, 245, 245, 0.24);
-
         display: flex;
         align-items: center;
-
         gap: 1.5rem;
+        flex-shrink: 0; /* Prevents nav from shrinking */
 
         .dots {
             display: flex;
@@ -27,13 +26,12 @@
                 height: 15px;
                 width: 15px;
                 background-color: white;
-
                 border-radius: 50%;
             }
 
             .red {
                 background-color: #eb3535;
-                cursor: default;
+                cursor: pointer; /* Makes it obvious it's clickable */
             }
 
             .yellow {
@@ -45,20 +43,46 @@
             }
         }
 
+        .title {
+            flex: 1;
+        }
 
+        /* Mobile close button */
+        .mobile-close {
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.7);
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.85rem;
+            cursor: pointer;
+            line-height: 1;
 
+            &:active {
+                background: rgba(255, 255, 255, 0.18);
+            }
+        }
     }
 
     .main-content {
-        height: 100%;
+        flex: 1;           /* Takes remaining height after nav */
+        overflow-y: auto;  /* Enables scrolling inside the window */
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+        min-height: 0;     /* Critical flex fix — without this overflow won't work */
     }
 
-    .main-content{
-        height: 100%;
-    }
-
-    *::-webkit-scrollbar{
+    *::-webkit-scrollbar {
         width: 8px;
     }
 
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 4px;
+    }
 }
