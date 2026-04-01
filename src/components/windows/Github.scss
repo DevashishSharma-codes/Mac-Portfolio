@@ -74,3 +74,14 @@
 
     }
 }
+
+@media (max-width: 768px) {
+    .cards {
+        gap: 1rem;
+        padding-bottom: 5rem;
+    }
+    .cards .card {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

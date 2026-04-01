@@ -32,3 +32,12 @@
 }
 
 //fontSize: '13px', 
+
+@media (max-width: 768px) {
+    .left .nav-item {
+        display: none;
+    }
+    .left .nav-item:nth-child(2) {
+        display: block;
+    }
+}

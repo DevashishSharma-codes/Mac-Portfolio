@@ -10,4 +10,9 @@
     pre{
         background-color: transparent !important;
     }
+
+    @media (max-width: 768px) {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
 }

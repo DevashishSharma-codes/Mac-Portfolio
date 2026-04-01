@@ -3,14 +3,20 @@ import "./Macwindow.scss";
 import { Rnd } from "react-rnd";
 
 const Macwindow = ({ children, windowName,setWindowsState, width = "40vw", height = "40vh" }) => {
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : false;
+  const defaultWidth = isMobile ? "90vw" : width;
+  const defaultHeight = isMobile ? "75vh" : height;
+  const defaultX = isMobile && typeof window !== 'undefined' ? window.innerWidth * 0.05 : 300;
+  const defaultY = isMobile && typeof window !== 'undefined' ? window.innerHeight * 0.05 : 200;
+
   return (
     <Rnd
       default={{
-                width: width,
-                height: height,
-                x: 300,
-                y: 200
-            }}
+        width: defaultWidth,
+        height: defaultHeight,
+        x: defaultX,
+        y: defaultY
+      }}
     >
       <div className="window">
         <div className="nav">

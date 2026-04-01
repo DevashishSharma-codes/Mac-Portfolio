@@ -1,20 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body, #root {
+html,
+body,
+#root {
     height: 100%;
     width: 100%;
 }
-body{
-    overflow:hidden;
+
+body {
+    overflow: hidden;
 }
+
 main {
-  min-height:100vh;
-    width:100%;
+    min-height: 100vh;
+    width: 100%;
     overflow: hidden;
     position: relative;
-    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/25341.jpg"); background-position: center; background-size: cover; background-repeat: no-repeat;
+    background: #000;
+}
+
+/* ─── HERO SECTION ─────────────────────────────────────────── */
+
+.hero-landing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0; /* FIXED OVERLAP */
+    width: 90%;
+    max-width: 860px;
+
+    /* LEFT-ALIGNED like Aceternity */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    pointer-events: none;
+}
+
+/* Badge pill */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.4rem 1rem;
+    border-radius: 99px;
+    letter-spacing: 0.01em;
+    backdrop-filter: blur(8px);
+    pointer-events: auto;
+    cursor: default;
+}
+
+/* Main headline */
+.hero-title {
+    font-family: 'Instrument Serif', -apple-system, BlinkMacSystemFont, "SF Pro Display", Georgia, serif;
+    font-size: clamp(2.8rem, 6.5vw, 6rem);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+
+    /* Solid white — no stroke */
+    color: #ffffff;
+    -webkit-text-stroke: 0;
+}
+
+/* Subtitle paragraph */
+.hero-subtitle {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 520px;
+}
+
+/* CTA buttons row */
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.btn-primary {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #000;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-secondary {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    padding: 0.65rem 1.4rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+    .hero-landing {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.4rem, 8vw, 3.5rem);
+    }
+}
+
+/* ─── SHADER BACKGROUND ─────────────────────────────────────── */
+
+.shader-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Diagonal coloured glowing gradient — bottom-right corner */
+.shader-stripes {
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    width: 65%;
+    height: 110%;
+
+    background: linear-gradient(
+        -45deg,
+        #7c3aed 0%,   /* Purple */
+        #ec4899 30%,  /* Pink */
+        #ef4444 60%,  /* Red */
+        #f97316 80%,  /* Orange */
+        #eab308 100%  /* Yellow */
+    );
+
+    /* Fade the left edge so it blends into the dark bg */
+    -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+    mask-image: linear-gradient(to left, black 30%, transparent 100%);
+
+    filter: blur(80px);
+    animation: glow-pulse 8s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+    0%   { opacity: 0.75; transform: scale(1) translate(0, 0); }
+    100% { opacity: 1; transform: scale(1.05) translate(-2%, 2%); }
+}
+
+/* Dark overlay so the left content stays readable */
+.shader-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        #000 0%,
+        rgba(0, 0, 0, 0.72) 50%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
 }
