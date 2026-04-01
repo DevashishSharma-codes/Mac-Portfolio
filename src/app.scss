@@ -6,19 +6,22 @@
   box-sizing: border-box;
 }
 
+/* 1. Using dvh (Dynamic Viewport Height) ensures the 
+   address bar doesn't push content off-screen */
 html,
 body,
 #root {
-  height: 100%;
+  height: 100dvh; 
   width: 100%;
 }
 
 body {
   overflow: hidden;
+  background: #000;
 }
 
 main {
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -32,7 +35,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 0;
+  z-index: 10; /* Increased to stay above shaders */
   width: 90%;
   max-width: 860px;
 
@@ -75,26 +78,6 @@ main {
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.65;
   max-width: 520px;
-}
-
-/* MOBILE HERO */
-
-@media (max-width: 768px) {
-
-  .hero-landing {
-    align-items: center;
-    text-align: center;
-    top: 45%;
-  }
-
-  .hero-subtitle {
-    text-align: center;
-  }
-
-  .hero-title {
-    font-size: clamp(2.4rem, 8vw, 3.5rem);
-  }
-
 }
 
 /* SHADER BACKGROUND */
@@ -146,10 +129,37 @@ main {
   pointer-events: none;
 }
 
-/* MOBILE DOCK FIX */
+/* DOCK BASE STYLES */
+.dock {
+  position: fixed; /* Ensures it stays relative to the screen, not the content */
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; /* Keeps it on top of everything */
+}
+
+/* MOBILE ADJUSTMENTS */
 
 @media (max-width: 768px) {
-  .dock {
-    bottom: calc(env(safe-area-inset-bottom) + 25px);
+
+  .hero-landing {
+    align-items: center;
+    text-align: center;
+    top: 40%; /* Moved up slightly to leave room for the dock */
   }
+
+  .hero-subtitle {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 8vw, 3.5rem);
+  }
+
+  /* 2. Enhanced Dock Fix: Uses env(safe-area-inset-bottom) to 
+     avoid the "Home Bar" on modern iPhones/Androids */
+  .dock {
+    bottom: calc(env(safe-area-inset-bottom) + 20px);
+  }
+
 }
