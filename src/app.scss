@@ -4,194 +4,152 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
+}
 
 html,
 body,
 #root {
-height: 100%;
-width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 body {
-overflow: hidden; /* prevent scroll */
+  overflow: hidden;
 }
 
 main {
-height: 100vh; /* fit exactly in viewport */
-width: 100%;
-overflow: hidden;
-position: relative;
-background: #000;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #000;
 }
 
-/* ─── HERO SECTION ─────────────────────────────────────────── */
+/* HERO SECTION */
 
 .hero-landing {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-z-index: 0;
-width: 90%;
-max-width: 860px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  width: 90%;
+  max-width: 860px;
 
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 
-pointer-events: none;
+  pointer-events: none;
 }
-
-/* Badge */
 
 .hero-badge {
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-font-size: 0.85rem;
-color: rgba(255, 255, 255, 0.75);
-background: rgba(255, 255, 255, 0.07);
-border: 1px solid rgba(255, 255, 255, 0.15);
-padding: 0.4rem 1rem;
-border-radius: 99px;
-letter-spacing: 0.01em;
-backdrop-filter: blur(8px);
-pointer-events: auto;
-cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  letter-spacing: 0.01em;
+  backdrop-filter: blur(8px);
+  pointer-events: auto;
 }
-
-/* Title */
 
 .hero-title {
-font-family: 'Instrument Serif', -apple-system, BlinkMacSystemFont, "SF Pro Display", Georgia, serif;
-font-size: clamp(2.8rem, 6.5vw, 6rem);
-font-weight: 400;
-line-height: 1.08;
-letter-spacing: -0.02em;
-color: #ffffff;
+  font-family: 'Instrument Serif', -apple-system, BlinkMacSystemFont, "SF Pro Display", Georgia, serif;
+  font-size: clamp(2.8rem, 6.5vw, 6rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
-
-/* Subtitle */
 
 .hero-subtitle {
-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-color: rgba(255, 255, 255, 0.55);
-line-height: 1.65;
-max-width: 520px;
-}
-
-/* CTA */
-
-.hero-actions {
-display: flex;
-gap: 0.75rem;
-align-items: center;
-pointer-events: auto;
-}
-
-.btn-primary {
-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-font-size: 0.95rem;
-font-weight: 500;
-color: #000;
-background: #fff;
-border: none;
-border-radius: 6px;
-padding: 0.65rem 1.4rem;
-cursor: pointer;
-transition: opacity 0.2s;
-}
-
-.btn-primary:hover {
-opacity: 0.85;
-}
-
-.btn-secondary {
-font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-font-size: 0.95rem;
-font-weight: 500;
-color: rgba(255, 255, 255, 0.85);
-background: rgba(255, 255, 255, 0.06);
-border: 1px solid rgba(255, 255, 255, 0.15);
-border-radius: 6px;
-padding: 0.65rem 1.4rem;
-cursor: pointer;
-transition: background 0.2s;
-}
-
-.btn-secondary:hover {
-background: rgba(255, 255, 255, 0.12);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.65;
+  max-width: 520px;
 }
 
 /* MOBILE HERO */
 
 @media (max-width: 768px) {
 
-.hero-landing {
-align-items: center;
-text-align: center;
-top: 45%;
+  .hero-landing {
+    align-items: center;
+    text-align: center;
+    top: 45%;
+  }
+
+  .hero-subtitle {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 8vw, 3.5rem);
+  }
+
 }
 
-.hero-subtitle {
-text-align: center;
-}
-
-.hero-title {
-font-size: clamp(2.4rem, 8vw, 3.5rem);
-}
-
-}
-
-/* ─── SHADER BACKGROUND ─────────────────────────────────────── */
+/* SHADER BACKGROUND */
 
 .shader-bg {
-position: absolute;
-inset: 0;
-overflow: hidden;
-z-index: 0;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
 }
 
 .shader-stripes {
-position: absolute;
-bottom: -10%;
-right: -10%;
-width: 65%;
-height: 110%;
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 65%;
+  height: 110%;
 
-background: linear-gradient(
--45deg,
-#7c3aed 0%,
-#ec4899 30%,
-#ef4444 60%,
-#f97316 80%,
-#eab308 100%
-);
+  background: linear-gradient(
+    -45deg,
+    #7c3aed 0%,
+    #ec4899 30%,
+    #ef4444 60%,
+    #f97316 80%,
+    #eab308 100%
+  );
 
--webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
+  mask-image: linear-gradient(to left, black 30%, transparent 100%);
 
-filter: blur(80px);
-animation: glow-pulse 8s ease-in-out infinite alternate;
+  filter: blur(80px);
+  animation: glow-pulse 8s ease-in-out infinite alternate;
 }
 
 @keyframes glow-pulse {
-0% { opacity: 0.75; transform: scale(1) translate(0, 0); }
-100% { opacity: 1; transform: scale(1.05) translate(-2%, 2%); }
+  0% { opacity: 0.75; transform: scale(1) translate(0, 0); }
+  100% { opacity: 1; transform: scale(1.05) translate(-2%, 2%); }
 }
 
 .shader-overlay {
-position: absolute;
-inset: 0;
-background: linear-gradient(
-to right,
-#000 0%,
-rgba(0, 0, 0, 0.72) 50%,
-rgba(0, 0, 0, 0.1) 100%
-);
-pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    #000 0%,
+    rgba(0, 0, 0, 0.72) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  pointer-events: none;
+}
+
+/* MOBILE DOCK FIX */
+
+@media (max-width: 768px) {
+  .dock {
+    bottom: calc(env(safe-area-inset-bottom) + 25px);
+  }
 }
