@@ -46,8 +46,6 @@ const App = () => {
                     A fully interactive macOS-inspired portfolio.<br />
                     Use the Dock below to explore my work and get in touch.
                 </p>
-
-
             </div>
 
             <Nav />

@@ -13,16 +13,20 @@ body,
     width: 100%;
 }
 
+/* FIX: allow vertical scrolling on small screens */
 body {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 main {
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
     position: relative;
     background: #000;
+
+    /* space for dock so it never gets hidden */
+    padding-bottom: 120px;
 }
 
 /* ─── HERO SECTION ─────────────────────────────────────────── */
@@ -32,11 +36,10 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 0; /* FIXED OVERLAP */
+    z-index: 0;
     width: 90%;
     max-width: 860px;
 
-    /* LEFT-ALIGNED like Aceternity */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -70,10 +73,7 @@ main {
     font-weight: 400;
     line-height: 1.08;
     letter-spacing: -0.02em;
-
-    /* Solid white — no stroke */
     color: #ffffff;
-    -webkit-text-stroke: 0;
 }
 
 /* Subtitle paragraph */
@@ -127,10 +127,13 @@ main {
     background: rgba(255, 255, 255, 0.12);
 }
 
+/* MOBILE HERO FIX */
 @media (max-width: 768px) {
+
     .hero-landing {
         align-items: center;
         text-align: center;
+        top: 42%;
     }
 
     .hero-subtitle {
@@ -139,6 +142,10 @@ main {
 
     .hero-title {
         font-size: clamp(2.4rem, 8vw, 3.5rem);
+    }
+
+    main {
+        padding-bottom: 100px;
     }
 }
 
@@ -151,7 +158,6 @@ main {
     z-index: 0;
 }
 
-/* Diagonal coloured glowing gradient — bottom-right corner */
 .shader-stripes {
     position: absolute;
     bottom: -10%;
@@ -161,14 +167,13 @@ main {
 
     background: linear-gradient(
         -45deg,
-        #7c3aed 0%,   /* Purple */
-        #ec4899 30%,  /* Pink */
-        #ef4444 60%,  /* Red */
-        #f97316 80%,  /* Orange */
-        #eab308 100%  /* Yellow */
+        #7c3aed 0%,
+        #ec4899 30%,
+        #ef4444 60%,
+        #f97316 80%,
+        #eab308 100%
     );
 
-    /* Fade the left edge so it blends into the dark bg */
     -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
     mask-image: linear-gradient(to left, black 30%, transparent 100%);
 
@@ -181,7 +186,6 @@ main {
     100% { opacity: 1; transform: scale(1.05) translate(-2%, 2%); }
 }
 
-/* Dark overlay so the left content stays readable */
 .shader-overlay {
     position: absolute;
     inset: 0;
