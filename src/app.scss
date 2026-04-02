@@ -11,7 +11,7 @@
 html,
 body,
 #root {
-  height: 100dvh; 
+  height: 100dvh;
   width: 100%;
 }
 
@@ -35,7 +35,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10; /* Increased to stay above shaders */
+  z-index: 10;
+  /* Increased to stay above shaders */
   width: 90%;
   max-width: 860px;
 
@@ -96,14 +97,12 @@ main {
   width: 65%;
   height: 110%;
 
-  background: linear-gradient(
-    -45deg,
-    #7c3aed 0%,
-    #ec4899 30%,
-    #ef4444 60%,
-    #f97316 80%,
-    #eab308 100%
-  );
+  background: linear-gradient(-45deg,
+      #7c3aed 0%,
+      #ec4899 30%,
+      #ef4444 60%,
+      #f97316 80%,
+      #eab308 100%);
 
   -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
   mask-image: linear-gradient(to left, black 30%, transparent 100%);
@@ -113,29 +112,36 @@ main {
 }
 
 @keyframes glow-pulse {
-  0% { opacity: 0.75; transform: scale(1) translate(0, 0); }
-  100% { opacity: 1; transform: scale(1.05) translate(-2%, 2%); }
+  0% {
+    opacity: 0.75;
+    transform: scale(1) translate(0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.05) translate(-2%, 2%);
+  }
 }
 
 .shader-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    #000 0%,
-    rgba(0, 0, 0, 0.72) 50%,
-    rgba(22, 22, 22, 0.1) 100%
-  );
+  background: linear-gradient(to right,
+      #000 0%,
+      rgba(0, 0, 0, 0.72) 50%,
+      rgba(22, 22, 22, 0.1) 100%);
   pointer-events: none;
 }
 
 /* DOCK BASE STYLES */
 .dock {
-  position: fixed; /* Ensures it stays relative to the screen, not the content */
+  position: fixed;
+  /* Ensures it stays relative to the screen, not the content */
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100; /* Keeps it on top of everything */
+  z-index: 100;
+  /* Keeps it on top of everything */
 }
 
 /* MOBILE ADJUSTMENTS */
@@ -145,7 +151,8 @@ main {
   .hero-landing {
     align-items: center;
     text-align: center;
-    top: 40%; /* Moved up slightly to leave room for the dock */
+    top: 40%;
+    /* Moved up slightly to leave room for the dock */
   }
 
   .hero-subtitle {

@@ -1,7 +1,7 @@
 import React from 'react'
 import './app.scss'
 import { useState } from 'react'
-
+import ParticleBg from './components/ParticleBg'
 import Dock from './components/Dock.jsx'
 import Nav from './components/Nav.jsx'
 
@@ -29,7 +29,7 @@ const App = () => {
                 <div className="shader-stripes"></div>
                 <div className="shader-overlay"></div>
             </div>
-
+            <ParticleBg />
             {/* Hero Section */}
             <div className="hero-landing">
                 <div className="hero-badge">
@@ -43,7 +43,8 @@ const App = () => {
                 </h1>
 
                 <p className="hero-subtitle">
-                    A fully interactive macOS-inspired portfolio.<br />
+                    Hi, I'm Devashish Sharma, <br />
+                    a full-stack developer with a passion for building innovative web applications.<br />
                     Use the Dock below to explore my work and get in touch.
                 </p>
             </div>
