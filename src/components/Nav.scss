@@ -6,7 +6,7 @@
     background-color: #9e9e9e1b;
     backdrop-filter: blur(5px);
     display: flex;
-    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
     align-items: center;
     font-size: 13px;
     font-weight: 500;
@@ -21,7 +21,7 @@
     display: flex;
     gap: 1rem;
     align-items: center;
-    
+
 }
 
 .right {
@@ -37,6 +37,7 @@
     .left .nav-item {
         display: none;
     }
+
     .left .nav-item:nth-child(2) {
         display: block;
     }
