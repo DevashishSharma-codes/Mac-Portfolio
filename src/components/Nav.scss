@@ -1,37 +1,62 @@
 .nav {
     width: 100%;
-    background-color: rgba(184, 184, 184, 0.178);
-    padding-inline: 0.75rem;
-    padding-block: 0.5rem;
     background-color: #9e9e9e1b;
+    padding-inline: 0.75rem;
+    padding-block: 0.22rem;
     backdrop-filter: blur(5px);
     display: flex;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
     align-items: center;
+    justify-content: space-between;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Helvetica, sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: white;
     letter-spacing: -0.1px;
-    justify-content: space-between;
-
-
+    box-sizing: border-box;
+    min-height: 32px;
 }
 
 .left {
     display: flex;
     gap: 1rem;
     align-items: center;
-
 }
 
 .right {
     display: flex;
-    gap: 1rem;
+    gap: 0.45rem;
     align-items: center;
     font-weight: 500;
 }
 
-//fontSize: '13px', 
+/* ONLY the theme toggle buttons */
+.theme-toggle,
+.right .theme-toggle,
+.right button.theme-toggle {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 999px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 1 !important;
+    box-sizing: border-box !important;
+}
+
+/* icon inside */
+.theme-toggle svg,
+.right .theme-toggle svg,
+.theme-toggle img,
+.right .theme-toggle img {
+    width: 12px !important;
+    height: 12px !important;
+    display: block;
+    flex-shrink: 0;
+}
 
 @media (max-width: 768px) {
     .left .nav-item {
@@ -40,5 +65,32 @@
 
     .left .nav-item:nth-child(2) {
         display: block;
+    }
+
+    .nav {
+        padding-inline: 0.65rem;
+        padding-block: 0.2rem;
+        min-height: 30px;
+    }
+
+    .right {
+        gap: 0.38rem;
+    }
+
+    .theme-toggle,
+    .right .theme-toggle,
+    .right button.theme-toggle {
+        width: 20px !important;
+        height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+
+    .theme-toggle svg,
+    .right .theme-toggle svg,
+    .theme-toggle img,
+    .right .theme-toggle img {
+        width: 11px !important;
+        height: 11px !important;
     }
 }

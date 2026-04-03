@@ -1,29 +1,28 @@
 .dock {
     display: flex;
-    gap: 0.75rem;
-   width: fit-content;
+    gap: 0.7rem;
+    width: fit-content;
     position: absolute;
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
-    padding-inline: 1rem;
-    padding-block: 0.75rem;
-    border-radius: 0.75rem;
+    padding-inline: 0.9rem;
+    padding-block: 0.55rem;
     background-color: rgba(139, 138, 138, 0.2);
     backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
     -webkit-backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
+    border-radius: 14px;
 
     .icon {
-        padding: 0.65rem;
+        padding: 0.55rem;
         border-radius: 0.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
         aspect-ratio: 1/1;
-        width: 3.2rem;
-        height: 3.2rem;
+        width: 2.9rem;
+        height: 2.9rem;
         transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
@@ -33,7 +32,7 @@
     }
 
     .note {
-        background: linear-gradient(to bottom, rgb(255, 179, 87), rgb(255, 153, 28))
+        background: linear-gradient(to bottom, rgb(255, 179, 87), rgb(255, 153, 28));
     }
 
     .pdf {
@@ -54,12 +53,24 @@
     }
 
     .icon:hover {
-        transform: scale(1.25) translateY(-20%);
+        transform: scale(1.2) translateY(-18%);
     }
 
     .icon:hover+.icon,
     .icon:has(+ .icon:hover) {
-        transform: scale(1.1) translateY(-10%);
+        transform: scale(1.08) translateY(-8%);
+    }
+
+    @media (max-width: 1024px) {
+        gap: 0.6rem;
+        padding-inline: 0.8rem;
+        padding-block: 0.5rem;
+
+        .icon {
+            width: 2.7rem;
+            height: 2.7rem;
+            padding: 0.5rem;
+        }
     }
 
     @media (max-width: 768px) {
@@ -68,7 +79,7 @@
         overflow-x: auto;
         padding-inline: 0.5rem;
         -webkit-overflow-scrolling: touch;
-        
+
         .icon {
             width: 2.5rem;
             height: 2.5rem;
