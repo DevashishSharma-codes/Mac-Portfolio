@@ -38,9 +38,18 @@ const Nav = () => {
         return saved === 'moon' ? 'moon' : 'sun'
     })
 
+    useEffect(() => {
+        document.body.classList.remove('theme-sun', 'theme-moon')
+        document.body.classList.add(mode === 'sun' ? 'theme-sun' : 'theme-moon')
+    }, [mode])
+
     const updateSkyMode = (nextMode) => {
         setMode(nextMode)
         localStorage.setItem(STORAGE_KEY, nextMode)
+
+        document.body.classList.remove('theme-sun', 'theme-moon')
+        document.body.classList.add(nextMode === 'sun' ? 'theme-sun' : 'theme-moon')
+
         window.dispatchEvent(
             new CustomEvent('sky-mode-change', { detail: { mode: nextMode } })
         )
@@ -70,6 +79,7 @@ const Nav = () => {
                         className={`sky-btn${mode === 'moon' ? ' sky-btn--active' : ''}`}
                         aria-label="Activate moon mode"
                         title="Moonlight mode"
+                        type="button"
                     >
                         <MoonIcon />
                         <span className="sky-btn-label">Moonlight</span>
@@ -80,6 +90,7 @@ const Nav = () => {
                         className={`sky-btn${mode === 'sun' ? ' sky-btn--active' : ''}`}
                         aria-label="Activate sun mode"
                         title="Sunlit mode"
+                        type="button"
                     >
                         <SunIcon />
                         <span className="sky-btn-label">Sunlit</span>

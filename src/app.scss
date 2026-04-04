@@ -29,7 +29,7 @@ main {
 /* HERO SECTION */
 .hero-landing {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -39,25 +39,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.2rem;
 
   pointer-events: none;
 }
 
 .hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.4rem 1rem;
-  border-radius: 99px;
-  letter-spacing: 0.01em;
-  backdrop-filter: blur(8px);
-  pointer-events: auto;
+  display: none;
 }
 
 .hero-title {
@@ -100,12 +88,14 @@ main {
   width: 65%;
   height: 110%;
 
-  background: linear-gradient(-45deg,
-      #7c3aed 0%,
-      #ec4899 30%,
-      #ef4444 60%,
-      #f97316 80%,
-      #eab308 100%);
+  background: linear-gradient(
+    -45deg,
+    #ffd9c8 0%,
+    #ffb8c8 30%,
+    #ef4444 60%,
+    #ff9fbc 80%,
+    #eab308 100%
+  );
 
   -webkit-mask-image: linear-gradient(to left, black 30%, transparent 100%);
   mask-image: linear-gradient(to left, black 30%, transparent 100%);
@@ -128,17 +118,19 @@ main {
 .shader-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right,
-      #000 0%,
-      rgba(0, 0, 0, 0.72) 50%,
-      rgba(22, 22, 22, 0.1) 100%);
+  background: linear-gradient(
+    to right,
+    #000 0%,
+    rgba(0, 0, 0, 0.72) 50%,
+    rgba(22, 22, 22, 0.1) 100%
+  );
   pointer-events: none;
 }
 
 /* DOCK */
 .dock {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
@@ -147,9 +139,9 @@ main {
 /* LAPTOP */
 @media (min-width: 769px) and (max-width: 1366px) {
   .hero-landing {
-    top: 46%;
+    top: 40%;
     max-width: 760px;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 
   .hero-title {
@@ -162,19 +154,12 @@ main {
   }
 
   .dock {
-    bottom: 1.5rem;
+    bottom: 2rem;
   }
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  /*
-   * Nav ~28px tall at top (z-index 200, in normal flow).
-   * Dock ~80px tall at bottom (fixed).
-   * Usable space between them = 100dvh - 28px - 80px = 100dvh - 108px
-   * Centre of that band from viewport top = 28px + (100dvh - 108px) / 2
-   * translateY(-50%) then centres the hero block within that band.
-   */
   .hero-landing {
     top: calc(28px + (100dvh - 108px) / 2);
     left: 50%;
@@ -198,8 +183,7 @@ main {
   }
 
   .hero-badge {
-    font-size: 0.76rem;
-    padding: 0.32rem 0.8rem;
+    display: none;
   }
 
   .dock {
@@ -221,3 +205,4 @@ main {
     font-size: 0.8rem;
   }
 }
+

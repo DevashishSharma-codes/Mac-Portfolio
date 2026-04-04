@@ -32,9 +32,7 @@ const App = () => {
             <ParticleBg />
             {/* Hero Section */}
             <div className="hero-landing">
-                <div className="hero-badge">
-                    Built with React + Vite &nbsp;→
-                </div>
+                
 
                 <h1 className="hero-title">
                     This MacBook is<br />
