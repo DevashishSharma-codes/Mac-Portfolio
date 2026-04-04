@@ -24,7 +24,7 @@ const App = () => {
     return (
         <main>
 
-            {/* Stripe style shader background */}
+
             <div className="shader-bg">
                 <div className="shader-stripes"></div>
                 <div className="shader-overlay"></div>
@@ -44,7 +44,8 @@ const App = () => {
 
                 <p className="hero-subtitle">
                     Hi, I'm Devashish Sharma, <br />
-                    a full-stack developer with a passion for building innovative web applications.<br />
+                    Computer Science undergraduate passionate about Full Stack Development and Generative AI,
+                    <br />building scalable platforms, intelligent APIs, and impactful digital products..<br />
                     Use the Dock below to explore my work and get in touch.
                 </p>
             </div>
