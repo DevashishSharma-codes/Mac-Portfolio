@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ParticleBg from './components/ParticleBg'
 import Dock from './components/Dock.jsx'
 import Nav from './components/Nav.jsx'
-import MorphText from './components/MorphText.jsx'
+import Morphtext from './components/Morphtext.jsx'
 import Github from './components/windows/Github'
 import Note from './components/windows/Note'
 import Resume from './components/windows/Resume'
@@ -42,7 +42,7 @@ const App = () => {
                     No kidding.
                 </h1>
 
-             <MorphText />
+             <Morphtext />
             </div>
 
             <Nav />

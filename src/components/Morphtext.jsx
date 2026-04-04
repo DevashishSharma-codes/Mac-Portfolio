@@ -1,5 +1,5 @@
 import React from 'react'
-import './MorphText.scss'
+import './Morphtext.scss'
 
 const LINE_ONE = [
   "Hi,", "I'm", "Devashish", "Sharma,", "Computer", "Science",
@@ -12,7 +12,7 @@ const LINE_ONE = [
 const LINE_TWO_NORMAL = ["Explore", "my", "work", "through", "the"]
 const LINE_TWO_HIGHLIGHT = ["Dock", "below", "and", "get", "in", "touch."]
 
-const MorphText = () => {
+const Morphtext = () => {
   let index = 0
 
   const renderWords = (words, extraClass = '') =>
@@ -45,4 +45,4 @@ const MorphText = () => {
   )
 }
 
-export default MorphText
+export default Morphtext
