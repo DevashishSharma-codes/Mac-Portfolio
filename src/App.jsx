@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ParticleBg from './components/ParticleBg'
 import Dock from './components/Dock.jsx'
 import Nav from './components/Nav.jsx'
-
+import MorphText from './components/MorphText.jsx'
 import Github from './components/windows/Github'
 import Note from './components/windows/Note'
 import Resume from './components/windows/Resume'
@@ -42,12 +42,7 @@ const App = () => {
                     No kidding.
                 </h1>
 
-                <p className="hero-subtitle">
-                    Hi, I'm Devashish Sharma, <br />
-                    Computer Science undergraduate passionate about Full Stack Development and Generative AI,
-                    <br />building scalable platforms, intelligent APIs, and impactful digital products..<br />
-                    Use the Dock below to explore my work and get in touch.
-                </p>
+             <MorphText />
             </div>
 
             <Nav />

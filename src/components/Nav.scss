@@ -1,6 +1,6 @@
 .nav {
     width: 100%;
-    background-color: #9e9e9e1b;
+    background-color: rgba(158, 158, 158, 0.11);
     padding-inline: 0.75rem;
     padding-block: 0.22rem;
     backdrop-filter: blur(5px);
@@ -14,83 +14,222 @@
     letter-spacing: -0.1px;
     box-sizing: border-box;
     min-height: 32px;
+    position: relative;
+    z-index: 200;
+    gap: 8px;
 }
 
-.left {
+/* ── LEFT SIDE ─────────────────────────────────────────────── */
+.nav-left {
     display: flex;
+    align-items: center;
     gap: 1rem;
-    align-items: center;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
 }
 
-.right {
+.apple-icon {
+    flex-shrink: 0;
     display: flex;
-    gap: 0.45rem;
     align-items: center;
-    font-weight: 500;
+
+    img {
+        width: 16px;
+        height: 16px;
+        display: block;
+    }
 }
 
-/* ONLY the theme toggle buttons */
-.theme-toggle,
-.right .theme-toggle,
-.right button.theme-toggle {
-    width: 22px !important;
-    height: 22px !important;
-    min-width: 22px !important;
-    min-height: 22px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    border-radius: 999px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    line-height: 1 !important;
-    box-sizing: border-box !important;
+.nav-item {
+    white-space: nowrap;
+    cursor: default;
+
+    p {
+        margin: 0;
+    }
 }
 
-/* icon inside */
-.theme-toggle svg,
-.right .theme-toggle svg,
-.theme-toggle img,
-.right .theme-toggle img {
-    width: 12px !important;
-    height: 12px !important;
-    display: block;
+.nav-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* hidden on mobile, shown on desktop */
+.nav-desktop-only {
+    display: flex;
+    align-items: center;
+}
+
+/* ── RIGHT SIDE ────────────────────────────────────────────── */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
-    .left .nav-item {
+/* ── SKY TOGGLE ────────────────────────────────────────────── */
+.sky-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.sky-btn {
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+    transition: background 180ms ease, border-color 180ms ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.94);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    /* desktop default: pill with label */
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.08);
+
+    &.sky-btn--active {
+        border-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.14);
+    }
+
+    &:hover:not(.sky-btn--active) {
+        background: rgba(255, 255, 255, 0.11);
+    }
+}
+
+.sky-icon {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    display: block;
+}
+
+.sky-btn-label {
+    /* visible on desktop, hidden on mobile via breakpoint */
+    display: inline;
+}
+
+/* ── WIFI ──────────────────────────────────────────────────── */
+.wifi-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+        width: 16px;
+        height: 16px;
+        display: block;
+    }
+}
+
+/* ── DATETIME ──────────────────────────────────────────────── */
+.nav-datetime {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+/* ════════════════════════════════════════════════════════════
+   BREAKPOINTS
+   ════════════════════════════════════════════════════════════ */
+
+/* Laptop: hide some nav items to prevent overflow */
+@media (max-width: 1100px) {
+    .nav-left {
+        gap: 0.6rem;
+    }
+}
+
+/* Tablet / small laptop: hide desktop-only nav items */
+@media (max-width: 900px) {
+    .nav-desktop-only {
         display: none;
     }
 
-    .left .nav-item:nth-child(2) {
-        display: block;
+    .nav-left {
+        gap: 0.5rem;
     }
+}
 
+/* Mobile */
+@media (max-width: 768px) {
     .nav {
-        padding-inline: 0.65rem;
-        padding-block: 0.2rem;
-        min-height: 30px;
+        padding-inline: 0.55rem;
+        padding-block: 0.18rem;
+        min-height: 28px;
+        gap: 6px;
     }
 
-    .right {
-        gap: 0.38rem;
+    .nav-left {
+        gap: 6px;
     }
 
-    .theme-toggle,
-    .right .theme-toggle,
-    .right button.theme-toggle {
-        width: 20px !important;
-        height: 20px !important;
-        min-width: 20px !important;
-        min-height: 20px !important;
+    .nav-right {
+        gap: 6px;
     }
 
-    .theme-toggle svg,
-    .right .theme-toggle svg,
-    .theme-toggle img,
-    .right .theme-toggle img {
-        width: 11px !important;
-        height: 11px !important;
+    /* Icon-only buttons: no label, square-ish pill */
+    .sky-toggle {
+        gap: 5px;
+    }
+
+    .sky-btn {
+        height: 22px;
+        width: 28px;
+        padding: 0;
+        gap: 0;
+        font-size: 0;
+        /* hides any stray text */
+    }
+
+    .sky-btn-label {
+        display: none;
+        /* hide the text label */
+    }
+
+    .sky-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .nav-datetime {
+        font-size: 0.72rem;
+    }
+
+    .apple-icon img {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .sky-btn {
+        height: 20px;
+        width: 24px;
+    }
+
+    .sky-icon {
+        width: 11px;
+        height: 11px;
+    }
+
+    .nav-datetime {
+        font-size: 0.68rem;
     }
 }

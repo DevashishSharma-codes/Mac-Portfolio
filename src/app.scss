@@ -6,8 +6,6 @@
   box-sizing: border-box;
 }
 
-/* 1. Using dvh (Dynamic Viewport Height) ensures the 
-   address bar doesn't push content off-screen */
 html,
 body,
 #root {
@@ -29,14 +27,12 @@ main {
 }
 
 /* HERO SECTION */
-
 .hero-landing {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  /* Increased to stay above shaders */
   width: 90%;
   max-width: 860px;
 
@@ -74,15 +70,22 @@ main {
 }
 
 .hero-subtitle {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.65;
-  max-width: 520px;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+  font-size: clamp(0.98rem, 1.35vw, 1.12rem);
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.62);
+  max-width: 580px;
+}
+
+.hero-highlight {
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  white-space: nowrap;
 }
 
 /* SHADER BACKGROUND */
-
 .shader-bg {
   position: absolute;
   inset: 0;
@@ -116,7 +119,6 @@ main {
     opacity: 0.75;
     transform: scale(1) translate(0, 0);
   }
-
   100% {
     opacity: 1;
     transform: scale(1.05) translate(-2%, 2%);
@@ -133,40 +135,89 @@ main {
   pointer-events: none;
 }
 
-/* DOCK BASE STYLES */
+/* DOCK */
 .dock {
   position: fixed;
-  /* Ensures it stays relative to the screen, not the content */
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  /* Keeps it on top of everything */
 }
 
-/* MOBILE ADJUSTMENTS */
-
-@media (max-width: 768px) {
-
+/* LAPTOP */
+@media (min-width: 769px) and (max-width: 1366px) {
   .hero-landing {
+    top: 46%;
+    max-width: 760px;
+    gap: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 5.2vw, 4.8rem);
+    line-height: 1.02;
+  }
+
+  .hero-subtitle {
+    max-width: 480px;
+  }
+
+  .dock {
+    bottom: 1.5rem;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  /*
+   * Nav ~28px tall at top (z-index 200, in normal flow).
+   * Dock ~80px tall at bottom (fixed).
+   * Usable space between them = 100dvh - 28px - 80px = 100dvh - 108px
+   * Centre of that band from viewport top = 28px + (100dvh - 108px) / 2
+   * translateY(-50%) then centres the hero block within that band.
+   */
+  .hero-landing {
+    top: calc(28px + (100dvh - 108px) / 2);
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     align-items: center;
     text-align: center;
-    top: 40%;
-    /* Moved up slightly to leave room for the dock */
+    width: 92%;
+    gap: 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.9rem, 7.5vw, 2.8rem);
+    line-height: 1.1;
   }
 
   .hero-subtitle {
     text-align: center;
+    max-width: 88%;
+    font-size: clamp(0.82rem, 3.4vw, 0.98rem);
+  }
+
+  .hero-badge {
+    font-size: 0.76rem;
+    padding: 0.32rem 0.8rem;
+  }
+
+  .dock {
+    bottom: calc(env(safe-area-inset-bottom) + 16px);
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .hero-landing {
+    gap: 0.85rem;
   }
 
   .hero-title {
-    font-size: clamp(2.4rem, 8vw, 3.5rem);
+    font-size: clamp(1.7rem, 8.5vw, 2.2rem);
   }
 
-  /* 2. Enhanced Dock Fix: Uses env(safe-area-inset-bottom) to 
-     avoid the "Home Bar" on modern iPhones/Androids */
-  .dock {
-    bottom: calc(env(safe-area-inset-bottom) + 20px);
+  .hero-subtitle {
+    font-size: 0.8rem;
   }
-
 }

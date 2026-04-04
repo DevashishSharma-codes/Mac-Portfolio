@@ -1,0 +1,56 @@
+.morph-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: 560px;
+}
+
+.morph-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.morph-word {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(8px);
+  animation: morphIn 0.6s ease forwards;
+  will-change: opacity, transform, filter;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes morphIn {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .morph-word {
+    filter: blur(0px);
+    animation: morphInMobile 0.5s ease forwards;
+  }
+
+  @keyframes morphInMobile {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

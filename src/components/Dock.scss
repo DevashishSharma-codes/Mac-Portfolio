@@ -1,98 +1,148 @@
 .dock {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  width: fit-content;
+  max-width: 96vw;
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-inline: 0.85rem;
+  padding-block: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+  -webkit-backdrop-filter: blur(24px) saturate(180%) brightness(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  z-index: 9999;
+
+  // Wrapper handles the JS-driven scale transform
+  .dock-icon-wrap {
     display: flex;
-    gap: 0.7rem;
-    width: fit-content;
+    align-items: flex-end;
+    transform-origin: bottom center;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+  }
+
+  .icon-link {
+    display: flex;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 12px;
+    padding: 0.42rem;
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        160deg,
+        rgba(255, 255, 255, 0.18) 0%,
+        transparent 55%
+      );
+      pointer-events: none;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      user-select: none;
+    }
+  }
+
+  // Running-app dot
+  .dock-dot {
+    display: none; // enable per-icon if needed
     position: absolute;
-    bottom: 1rem;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    padding-inline: 0.9rem;
-    padding-block: 0.55rem;
-    background-color: rgba(139, 138, 138, 0.2);
-    backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
-    -webkit-backdrop-filter: blur(10px) saturate(150%) brightness(1.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 14px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+  }
+
+  // Icon colour themes
+  .github  { background: #1a1a1a; }
+  .cli     { background: #1a1a1a; }
+
+  .note    { background: linear-gradient(160deg, #ffc85c, #ff9a1c); }
+  .pdf     { background: linear-gradient(160deg, #ff5a62, #ff1a2a); }
+  .calender{ background: linear-gradient(160deg, #5b8ef5, #2c50ee); }
+  .mail    { background: linear-gradient(160deg, #5b8ef5, #2c50ee); }
+  .spotify { background: linear-gradient(160deg, #5ccc3a, #3aaa10); }
+  .link    { background: linear-gradient(160deg, #c97ad0, #9620a8); }
+
+  // ── Responsive ──────────────────────────────────────────────
+
+  // Tablet
+  @media (max-width: 1024px) {
+    gap: 0.45rem;
+    padding-inline: 0.75rem;
+    padding-block: 0.45rem;
 
     .icon {
-        padding: 0.55rem;
-        border-radius: 0.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        aspect-ratio: 1/1;
-        width: 2.9rem;
-        height: 2.9rem;
-        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 11px;
+    }
+  }
+
+  // Mobile: shrink icons so all 8 fit in one row, kill magnification
+  @media (max-width: 640px) {
+    gap: 0.28rem;
+    padding-inline: 0.55rem;
+    padding-block: 0.4rem;
+    border-radius: 16px;
+    max-width: 98vw;
+
+    .dock-icon-wrap {
+      // disable JS magnification visually on touch
+      transform: none !important;
+      transition: none;
     }
 
-    .github,
-    .cli {
-        background-color: black;
+    .icon {
+      width: 2.1rem;
+      height: 2.1rem;
+      padding: 0.34rem;
+      border-radius: 9px;
     }
+  }
 
-    .note {
-        background: linear-gradient(to bottom, rgb(255, 179, 87), rgb(255, 153, 28));
+  // Very small phones (≤ 380px)
+  @media (max-width: 380px) {
+    gap: 0.2rem;
+    padding-inline: 0.4rem;
+
+    .icon {
+      width: 1.85rem;
+      height: 1.85rem;
+      padding: 0.28rem;
+      border-radius: 8px;
     }
-
-    .pdf {
-        background: linear-gradient(to bottom, rgb(255, 65, 78), rgb(255, 25, 40));
-    }
-
-    .calender,
-    .mail {
-        background: linear-gradient(to bottom, rgb(65, 56, 201), rgb(47, 37, 238));
-    }
-
-    .spotify {
-        background: linear-gradient(to bottom, rgb(78, 176, 33), rgb(53, 142, 12));
-    }
-
-    .link {
-        background: linear-gradient(to bottom, rgb(163, 97, 170), rgb(142, 33, 154));
-    }
-
-    .icon:hover {
-        transform: scale(1.2) translateY(-18%);
-    }
-
-    .icon:hover+.icon,
-    .icon:has(+ .icon:hover) {
-        transform: scale(1.08) translateY(-8%);
-    }
-
-    @media (max-width: 1024px) {
-        gap: 0.6rem;
-        padding-inline: 0.8rem;
-        padding-block: 0.5rem;
-
-        .icon {
-            width: 2.7rem;
-            height: 2.7rem;
-            padding: 0.5rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        gap: 0.4rem;
-        max-width: 95vw;
-        overflow-x: auto;
-        padding-inline: 0.5rem;
-        -webkit-overflow-scrolling: touch;
-
-        .icon {
-            width: 2.5rem;
-            height: 2.5rem;
-            padding: 0.4rem;
-        }
-
-        .icon:hover {
-            transform: none;
-        }
-
-        .icon:hover+.icon,
-        .icon:has(+ .icon:hover) {
-            transform: none;
-        }
-    }
+  }
 }
