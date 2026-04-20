@@ -99,7 +99,7 @@ export default function ParticleBg() {
             const pinkGrad = ctx.createLinearGradient(W * 0.32, 0, W, H)
             pinkGrad.addColorStop(0, 'rgba(0,0,0,0)')
             pinkGrad.addColorStop(0.18, 'rgba(255, 190, 220, 0.04)')
-            pinkGrad.addColorStop(0.48, 'rgba(255, 145, 190, 0.09)')
+            pinkGrad.addColorStop(0.48, 'rgba(252, 143, 188, 0.09)')
             pinkGrad.addColorStop(1, 'rgba(255, 105, 150, 0.07)')
             ctx.fillStyle = pinkGrad
             ctx.fillRect(0, 0, W, H)
