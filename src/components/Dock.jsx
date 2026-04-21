@@ -46,13 +46,13 @@ const Dock = ({ setWindowsState }) => {
       key: 'calender',
       className: 'calender',
       src: '/doc-icons/calender.svg',
-      onClick: () => window.open('https://calendar.google.com/', '_blank'),
+      onClick: () => window.open('https://calendar.google.com/calendar/u/0/r', '_blank'),
     },
     {
       key: 'link',
       className: 'link',
       src: '/doc-icons/link.svg',
-      onClick: () => window.open('https://www.linkedin.com/in/devashish-sharma-aa470832a', '_blank'),
+      onClick: () => window.open('https://www.linkedin.com/in/devashish-sharma-aa470832a/', '_blank'),
     },
     {
       key: 'note',
